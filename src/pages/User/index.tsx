@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Dashboard: React.FC = () => {
+const User: React.FC = () => {
   return <div>User</div>;
 };
 
-export default Dashboard;
+export default User;
