@@ -76,7 +76,7 @@ const Dashboard: React.FC = () => {
             <div>
               <strong>{user.name}</strong>
               <p>{user.bio}</p>
-              <h5>{user.login}</h5>
+              <h5>@{user.login}</h5>
             </div>
 
             <FiChevronRight size={20} />

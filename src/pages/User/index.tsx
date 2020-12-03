@@ -69,7 +69,8 @@ const User: React.FC = () => {
             <img src={user.avatar_url} alt={user.name} />
             <div>
               <h1>{user.name}</h1>
-              <h5>{user.login}</h5>
+              <h5>@{user.login}</h5>
+              <br/>
               <strong>{user.bio}</strong>
             </div>
           </header>
@@ -98,6 +99,10 @@ const User: React.FC = () => {
               <div>
                 <strong>{repository.name}</strong>
                 <p>{repository.description}</p>
+                <p>
+                  {repository.stargazers_count} ⭐ {repository.watchers_count}{' '}
+                  👁‍🗨 {repository.open_issues_count}🚩
+                </p>
               </div>
 
               <FiChevronRight size={20} />
