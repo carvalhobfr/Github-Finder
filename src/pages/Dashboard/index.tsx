@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -16,8 +16,20 @@ interface User {
 
 const Dashboard: React.FC = () => {
   const [newUser, setNewUser] = useState('');
-  const [users, setUsers] = useState<User[]>([]);
   const [inputError, setInputError] = useState('');
+  const [users, setUsers] = useState<User[]>(() => {
+    const storageUsers = localStorage.getItem('@GithubFinder:users');
+
+    if (storageUsers) {
+      return JSON.parse(storageUsers);
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@GithubFinder:users', JSON.stringify(users));
+  }, [users]);
 
   async function handleAddUsers(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
