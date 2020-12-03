@@ -4,7 +4,7 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
-import { Title, Form, Users, Logo } from './styles';
+import { Title, Form, Users, Logo, Error } from './styles';
 
 interface User {
   login: string;
@@ -17,16 +17,27 @@ interface User {
 const Dashboard: React.FC = () => {
   const [newUser, setNewUser] = useState('');
   const [users, setUsers] = useState<User[]>([]);
+  const [inputError, setInputError] = useState('');
 
   async function handleAddUsers(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
 
-    const response = await api.get(`users/${newUser}`);
-    const user= response.data;
-    console.log(user);
+    if (!newUser) {
+      setInputError('Digite um usuário válido');
+      return;
+    }
+    try {
+      const response = await api.get(`users/${newUser}`);
 
-    setUsers([...users, user]);
-    setNewUser('');
+      const user = response.data;
+      console.log(user);
+
+      setUsers([...users, user]);
+      setNewUser('');
+      setInputError('');
+    } catch (err) {
+      setInputError('Verifique se digitou usuário corretamente');
+    }
   }
 
   return (
@@ -34,7 +45,7 @@ const Dashboard: React.FC = () => {
       <Logo src={logoImg} alt="GitHub Logo" />
       <Title>Encontre usuários do GitHub</Title>
 
-      <Form onSubmit={handleAddUsers}>
+      <Form hasError={!!inputError} onSubmit={handleAddUsers}>
         <input
           value={newUser}
           onChange={e => setNewUser(e.target.value)}
@@ -42,6 +53,8 @@ const Dashboard: React.FC = () => {
         />
         <button type="submit">Pesquisar</button>
       </Form>
+
+      {inputError && <Error>{inputError}</Error>}
 
       <Users>
         {users.map(user => (
