@@ -14,6 +14,7 @@ Find github users in a simple way.
 ## Layout
 
 <img src="/public/app.gif">
+url: https://githubfinderls.herokuapp.com/
 
 ## :rocket: About
 
