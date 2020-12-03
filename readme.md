@@ -30,6 +30,8 @@ Find github users in a simple way.
 - React Navigation
 - Styled Components
 - Axios
+- Insomnia
+
 
 ## :books: Installation Guide
 
