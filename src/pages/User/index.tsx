@@ -16,13 +16,13 @@ interface UserParams {
 }
 
 interface User {
-  name: string;
   login: string;
   avatar_url: string;
   public_repos: number;
   followers: number;
   following: number;
   bio: string;
+  name: string;
 }
 
 interface Repository {
@@ -57,7 +57,9 @@ const User: React.FC = () => {
   return (
     <>
       <Header>
-        <Logo src={logoImg} alt="GitHub Logo" />
+        <Link to="/">
+          <Logo src={logoImg} alt="GitHub Logo" />
+        </Link>
         <Link to="/">
           <FiChevronLeft size={16} />
           Back
@@ -102,7 +104,6 @@ const User: React.FC = () => {
                   👁‍🗨 {repository.open_issues_count}🚩
                 </p>
               </div>
-
               <FiChevronRight size={20} />
             </a>
           ))}
@@ -114,4 +115,4 @@ const User: React.FC = () => {
   );
 };
 
-export default { User, Repository };
+export default User;

@@ -62,6 +62,12 @@ export const UserInfo = styled.section`
       }
     }
   }
+
+  @media (max-width: 600px) {
+    div strong {
+      font-size: 14px !important;
+    }
+  }
 `;
 
 export const Repository = styled.div`

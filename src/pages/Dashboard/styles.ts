@@ -48,6 +48,18 @@ export const Form = styled.form<FormProps>`
       background: ${shade(0.2, '#04d361')};
     }
   }
+  @media (max-width: 600px) {
+    flex-direction: column !important;
+    align-items: center;
+
+    input,
+    button {
+      min-height: 80px;
+      width: 100%;
+      border-radius: 2px;
+      max-width: 350px;
+    }
+  }
 `;
 
 export const Users = styled.div`
@@ -99,4 +111,3 @@ export const Error = styled.span`
   color: #c53030;
   margin-top: 8px;
 `;
-
