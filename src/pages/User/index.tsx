@@ -26,7 +26,7 @@ interface User {
 }
 
 interface Repository {
-  map(arg0: (repository: any) => JSX.Element): React.ReactNode;
+  map(arg: (repository: any) => JSX.Element): React.ReactNode;
   full_name: string;
   description: string;
   stargazers_count: number;

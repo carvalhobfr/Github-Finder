@@ -15,7 +15,7 @@ afterEach(() => {
   testContainer = null;
 });
 
-it('should return User Json', () => {
+it('Fake user Data Json', () => {
   const fakeUserData = {
     name: 'Matheus Carvalho',
     login: 'carvalhobfr',
