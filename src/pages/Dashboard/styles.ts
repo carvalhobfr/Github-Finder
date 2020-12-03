@@ -100,6 +100,3 @@ export const Error = styled.span`
   margin-top: 8px;
 `;
 
-export const Logo = styled.img`
-  max-height: 30px;
-`;

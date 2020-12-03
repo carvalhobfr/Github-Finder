@@ -48,7 +48,7 @@ export const UserInfo = styled.section`
     margin-top: 40px;
     li {
       & + li {
-        margin-left: 80px;
+        margin-left: 50px;
       }
       strong {
         display: block;

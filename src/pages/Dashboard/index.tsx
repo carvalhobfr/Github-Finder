@@ -6,7 +6,8 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
-import { Title, Form, Users, Logo, Error } from './styles';
+import {Logo} from '../../styles/global';
+import { Form, Users, Error } from './styles';
 
 interface User {
   login: string;
@@ -37,7 +38,7 @@ const Dashboard: React.FC = () => {
     e.preventDefault();
 
     if (!newUser) {
-      setInputError('Digite um usuário válido');
+      setInputError('Invalid user');
       return;
     }
     try {
@@ -49,22 +50,21 @@ const Dashboard: React.FC = () => {
       setNewUser('');
       setInputError('');
     } catch (err) {
-      setInputError('Verifique se digitou usuário corretamente');
+      setInputError('Make sure you spelled correctly');
     }
   }
 
   return (
     <>
       <Logo src={logoImg} alt="GitHub Logo" />
-      <Title>Encontre usuários do GitHub</Title>
 
       <Form hasError={!!inputError} onSubmit={handleAddUsers}>
         <input
           value={newUser}
           onChange={e => setNewUser(e.target.value)}
-          placeholder="Digite o nome do usuário"
+          placeholder="Enter a Github User (e.g. 'Facebook') "
         />
-        <button type="submit">Pesquisar</button>
+        <button type="submit">Search</button>
       </Form>
 
       {inputError && <Error>{inputError}</Error>}

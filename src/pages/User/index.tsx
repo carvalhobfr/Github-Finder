@@ -63,7 +63,7 @@ const User: React.FC = () => {
           Voltar
         </Link>
       </Header>
-      {user ? (
+      {user && (
         <UserInfo>
           <header>
             <img src={user.avatar_url} alt={user.name} />
@@ -89,8 +89,6 @@ const User: React.FC = () => {
             </li>
           </ul>
         </UserInfo>
-      ) : (
-        <h1> Loading...</h1>
       )}
       {repositories ? (
         <Repository>
@@ -112,7 +110,6 @@ const User: React.FC = () => {
       ) : (
         <h1> Loading...</h1>
       )}
-      ;
     </>
   );
 };
