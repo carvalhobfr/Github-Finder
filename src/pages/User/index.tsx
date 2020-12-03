@@ -60,7 +60,7 @@ const User: React.FC = () => {
         <Logo src={logoImg} alt="GitHub Logo" />
         <Link to="/">
           <FiChevronLeft size={16} />
-          Voltar
+          Back
         </Link>
       </Header>
       {user && (
