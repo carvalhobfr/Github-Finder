@@ -1,5 +1,7 @@
 import React, { useState, useEffect, FormEvent } from 'react';
+
 import { FiChevronRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
@@ -42,7 +44,6 @@ const Dashboard: React.FC = () => {
       const response = await api.get(`users/${newUser}`);
 
       const user = response.data;
-      console.log(user);
 
       setUsers([...users, user]);
       setNewUser('');
@@ -70,7 +71,7 @@ const Dashboard: React.FC = () => {
 
       <Users>
         {users.map(user => (
-          <a key={user.name} href="teste">
+          <Link key={user.name} to={`/users/${user.login}`}>
             <img src={user.avatar_url} alt={user.login} />
             <div>
               <strong>{user.name}</strong>
@@ -79,7 +80,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             <FiChevronRight size={20} />
-          </a>
+          </Link>
         ))}
       </Users>
     </>
