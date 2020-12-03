@@ -7,7 +7,7 @@ Find github users in a simple way.
 </h3>
 
 <p align="center">
-  <a href="#rocket-sobre-o-projeto">About</a> | <a href="#computer-tecnologias">Tools</a> | <a href="#books-guia-de-instalação-e-execução">Installation Guide
+  <a href="#rocket-about">About</a> | <a href="#computer-tools">Tools</a> | <a href="#books-Installation-Guide">Installation Guide
 </a> | <a href="#scroll-licença">License</a>
 </p>
 
