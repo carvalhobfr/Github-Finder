@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { promises } from 'fs';
+
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
@@ -16,12 +16,12 @@ interface UserParams {
 }
 
 interface User {
+  name: string;
   login: string;
   avatar_url: string;
   public_repos: number;
   followers: number;
   following: number;
-  name: string;
   bio: string;
 }
 
@@ -70,7 +70,7 @@ const User: React.FC = () => {
             <div>
               <h1>{user.name}</h1>
               <h5>@{user.login}</h5>
-              <br/>
+              <br />
               <strong>{user.bio}</strong>
             </div>
           </header>
@@ -114,4 +114,4 @@ const User: React.FC = () => {
   );
 };
 
-export default User;
+export default { User, Repository };
