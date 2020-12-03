@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
-import {Logo} from '../../styles/global';
+import { Logo } from '../../styles/global';
 import { Form, Users, Error } from './styles';
 
 interface User {
