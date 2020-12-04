@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
 
       const user = response.data;
 
-      setUsers([...users, user]);
+      setUsers([user, ...users]);
       setNewUser('');
       setInputError('');
     } catch (err) {
