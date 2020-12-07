@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect, FormEvent } from 'react';
 
 import { FiChevronRight } from 'react-icons/fi';
@@ -20,15 +21,16 @@ interface User {
 const Dashboard: React.FC = () => {
   const [newUser, setNewUser] = useState('');
   const [inputError, setInputError] = useState('');
-  const [users, setUsers] = useState<User[]>(() => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
     const storageUsers = localStorage.getItem('@GithubFinder:users');
-
     if (storageUsers) {
-      return JSON.parse(storageUsers);
+      setUsers(JSON.parse(storageUsers));
+    } else {
+      setUsers([]);
     }
-
-    return [];
-  });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('@GithubFinder:users', JSON.stringify(users));
