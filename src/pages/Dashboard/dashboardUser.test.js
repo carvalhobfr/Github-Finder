@@ -4,43 +4,40 @@ import { act } from 'react-dom/test-utils';
 
 import User from './index';
 
-let testContainer = null;
+let container = null;
 
 beforeEach(() => {
-  testContainer = document.createElement('div');
-  document.body.appendChild(testContainer);
+  container = document.createElement('div');
+  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(testContainer);
-  testContainer.remove();
-  testContainer = null;
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });
 
-it('Fake user Data Json', () => {
-  const fakeUserData = {
+it('user informations', () => {
+  const fakeUser = {
     name: 'Matheus Carvalho',
-    login: 'carvalhobfr',
-    avatar_url:
-      'https://avatars1.githubusercontent.com/u/21340896?s=460&u=15027961d91563801094b670c063c78397c535a1&v=4',
+    reposQuantity: '61',
+    picture: 'https://github.com/carvalhobfr.png',
   };
 
   act(() => {
     render(
       <User
-        name={fakeUserData.name}
-        reposQuantity={fakeUserData.reposQuantity}
-        picture={fakeUserData.picture}
+        name={fakeUser.name}
+        reposQuantity={fakeUser.reposQuantity}
+        picture={fakeUser.picture}
       />,
-      testContainer,
+      container,
     );
   });
-  // expect(testContainer.querySelector('divstrong').textContent).toBe(
-  //   fakeUserData.name,
+  // expect(container.querySelector('div>div>img').src).toBe(fakeUser.picture);
+  // expect(container.querySelector('strong').textContent).toBe(fakeUser.name);
+  console.log(container);
+  // expect(container.querySelector('span').textContent).toBe(
+  //   fakeUser.reposQuantity,
   // );
-  // expect(testContainer.querySelector('Link').textContent).toBe(
-  //   fakeUserData.login,
-  // );
-  expect(testContainer.querySelector('img').src).toBe(fakeUserData.avatar_url);
-  expect(testContainer.querySelector('img').alt).toBe(fakeUserData.login);
 });

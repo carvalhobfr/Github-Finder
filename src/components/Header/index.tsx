@@ -4,7 +4,7 @@ import { FiChevronLeft } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 
-import { Container, Logo } from './styles.js';
+import { Container, Logo } from './styles';
 
 interface HeaderProps {
   backToDashboard?: boolean;
