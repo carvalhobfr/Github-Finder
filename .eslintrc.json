@@ -34,8 +34,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
-    "react/jsx-one-expression-per-line": "error",
-    "indent": ["error", 2],
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-indent": ["error", 2],
     "no-use-before-define": "off",
     "prettier/prettier": "error",
@@ -48,6 +47,7 @@
         "tsx": "never"
       }
     ],
+    "@typescript-eslint/no-explicit-any": "off",
     "import/no-unresolved": [
       2,
       { "caseSensitive": false }

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
@@ -90,8 +89,9 @@ const User: React.FC = () => {
                 <strong>{repository.name}</strong>
                 <p>{repository.description}</p>
                 <p>
-                  {repository.stargazers_count} ⭐ {repository.watchers_count}{' '}
-                  👁‍🗨 {repository.open_issues_count}🚩
+                  {repository.stargazers_count} ⭐{repository.watchers_count}{' '}
+                  👁‍🗨 {repository.open_issues_count}
+                  🚩
                 </p>
               </div>
               <FiChevronRight size={20} />
