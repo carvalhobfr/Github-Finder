@@ -17,7 +17,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "tsx": true
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
@@ -34,6 +34,9 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
+    "react/jsx-one-expression-per-line": "error",
+    "indent": ["error", 2],
+    "react/jsx-indent": ["error", 2],
     "no-use-before-define": "off",
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type":["error" , {"allowExpressions":true} ] ,
@@ -44,7 +47,12 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "import/no-unresolved": [
+      2,
+      { "caseSensitive": false }
+   ],
+   "react/prop-types": 0
   },
   "settings": {
     "import/resolver": {

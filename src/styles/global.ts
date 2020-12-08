@@ -1,5 +1,4 @@
-/* eslint-disable import/no-unresolved */
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import githubBackground from '../assets/githubBackground.svg';
 
 export default createGlobalStyle`
@@ -24,7 +23,4 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
-`;
-export const Logo = styled.img`
-  max-height: 30px;
 `;

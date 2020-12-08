@@ -5,9 +5,7 @@ import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import logoImg from '../../assets/logo.svg';
-
-import { Logo } from '../../styles/global';
+import Header from '../../components/Header';
 import { Form, Users, Error } from './styles';
 
 interface User {
@@ -58,7 +56,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Logo src={logoImg} alt="GitHub Logo" />
+      <Header />
 
       <Form hasError={!!inputError} onSubmit={handleAddUsers}>
         <input

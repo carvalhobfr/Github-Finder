@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { useRouteMatch } from 'react-router-dom';
+import { FiChevronRight } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import logoImg from '../../assets/logo.svg';
-
-import { Header, UserInfo, Repository } from './styles';
-import { Logo } from '../../styles/global';
+import { UserInfo, Repository } from './styles';
+import Header from '../../components/Header';
 
 interface UserParams {
   repository: any;
@@ -56,15 +54,7 @@ const User: React.FC = () => {
 
   return (
     <>
-      <Header>
-        <Link to="/">
-          <Logo src={logoImg} alt="GitHub Logo" />
-        </Link>
-        <Link to="/">
-          <FiChevronLeft size={16} />
-          Back
-        </Link>
-      </Header>
+      <Header backToDashboard />
       {user && (
         <UserInfo>
           <header>
@@ -109,7 +99,7 @@ const User: React.FC = () => {
           ))}
         </Repository>
       ) : (
-        <h1> Loading...</h1>
+        <h1> Loading... </h1>
       )}
     </>
   );

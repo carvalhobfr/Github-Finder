@@ -2,6 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
+import User from './index';
+
 let testContainer = null;
 
 beforeEach(() => {
@@ -25,21 +27,20 @@ it('Fake user Data Json', () => {
 
   act(() => {
     render(
-      <>
-        <img src={fakeUserData.avatar_url} alt={fakeUserData.name} />
-        <div>
-          <h1>{fakeUserData.name}</h1>
-          <h5>{fakeUserData.login}</h5>
-          <br />
-          <strong>{fakeUserData.bio}</strong>
-        </div>
-      </>,
+      <User
+        name={fakeUserData.name}
+        reposQuantity={fakeUserData.reposQuantity}
+        picture={fakeUserData.picture}
+      />,
       testContainer,
     );
   });
-  expect(testContainer.querySelector('h1').textContent).toBe(fakeUserData.name);
-  expect(testContainer.querySelector('h5').textContent).toBe(
-    fakeUserData.login,
-  );
+  // expect(testContainer.querySelector('divstrong').textContent).toBe(
+  //   fakeUserData.name,
+  // );
+  // expect(testContainer.querySelector('Link').textContent).toBe(
+  //   fakeUserData.login,
+  // );
   expect(testContainer.querySelector('img').src).toBe(fakeUserData.avatar_url);
+  expect(testContainer.querySelector('img').alt).toBe(fakeUserData.login);
 });
