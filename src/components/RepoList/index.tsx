@@ -4,22 +4,11 @@ import { FiChevronRight } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { UserInfo, Repository } from './styles';
-import Header from '../../components/Header';
+import { Repository } from './styles';
 
 interface UserParams {
   repository: any;
   user: string;
-}
-
-interface User {
-  login: string;
-  avatar_url: string;
-  public_repos: number;
-  followers: number;
-  following: number;
-  bio: string;
-  name: string;
 }
 
 interface Repository {
@@ -35,17 +24,12 @@ interface Repository {
   };
 }
 
-const User: React.FC = () => {
-  const [user, setUser] = useState<User>();
+const RepoList: React.FC = () => {
   const [repositories, setRepository] = useState<Repository | null>(null);
 
   const { params } = useRouteMatch<UserParams>();
 
   useEffect(() => {
-    api.get(`users/${params.user}`).then(response => {
-      setUser(response.data);
-    });
-
     api.get(`users/${params.user}/repos`).then(response => {
       setRepository(response.data);
     });
@@ -53,34 +37,6 @@ const User: React.FC = () => {
 
   return (
     <>
-      <Header backToDashboard />
-      {user && (
-        <UserInfo>
-          <header>
-            <img src={user.avatar_url} alt={user.name} />
-            <div>
-              <h1>{user.name}</h1>
-              <h5>@{user.login}</h5>
-              <br />
-              <strong>{user.bio}</strong>
-            </div>
-          </header>
-          <ul>
-            <li>
-              <strong>{user.followers}</strong>
-              <span>Followers</span>
-            </li>
-            <li>
-              <strong>{user.following}</strong>
-              <span>Following</span>
-            </li>
-            <li>
-              <strong>{user.public_repos}</strong>
-              <span>Repositories</span>
-            </li>
-          </ul>
-        </UserInfo>
-      )}
       {repositories ? (
         <Repository>
           {repositories.map(repository => (
@@ -89,7 +45,7 @@ const User: React.FC = () => {
                 <strong>{repository.name}</strong>
                 <p>{repository.description}</p>
                 <p>
-                  {repository.stargazers_count} ⭐{repository.watchers_count}{' '}
+                  {repository.stargazers_count} ⭐ {repository.watchers_count}
                   👁‍🗨 {repository.open_issues_count}
                   🚩
                 </p>
@@ -105,4 +61,4 @@ const User: React.FC = () => {
   );
 };
 
-export default User;
+export default RepoList;

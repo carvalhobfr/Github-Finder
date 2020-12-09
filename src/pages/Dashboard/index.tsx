@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Header from '../../components/Header';
-import UserList from '../../components/userList';
+import UserList from '../../components/UserList';
 
 const Dashboard: React.FC = () => {
   return (
