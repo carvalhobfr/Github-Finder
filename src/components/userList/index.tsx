@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect, FormEvent } from 'react';
-
 import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
 import api from '../../services/api';
 
 import { Form, Users, Error } from './styles';
@@ -17,9 +17,8 @@ interface User {
 
 const UserList: React.FC = () => {
   const [newUser, setNewUser] = useState('');
-  const [inputError, setInputError] = useState('');
   const [users, setUsers] = useState<User[]>([]);
-
+  const [inputError, setInputError] = useState('');
   useEffect(() => {
     const storageUsers = localStorage.getItem('@GithubFinder:users');
     if (storageUsers) {
@@ -65,14 +64,13 @@ const UserList: React.FC = () => {
       </Form>
 
       {inputError && <Error>{inputError}</Error>}
-
       <Users>
         {users.map(user => (
           <Link key={user.name} to={`/users/${user.login}`}>
             <img src={user.avatar_url} alt={user.login} />
             <div>
               <strong>{user.name}</strong>
-              <p>{user.bio}</p>
+              <p id="userbio">{user.bio}</p>
               <h5>@{user.login}</h5>
             </div>
 
