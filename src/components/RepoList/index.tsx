@@ -45,9 +45,8 @@ const RepoList: React.FC = () => {
                 <strong>{repository.name}</strong>
                 <p>{repository.description}</p>
                 <p>
-                  {repository.stargazers_count} ⭐ {repository.watchers_count}
-                  👁‍🗨 {repository.open_issues_count}
-                  🚩
+                  {repository.stargazers_count}⭐ {repository.watchers_count}
+                  👁‍🗨 {repository.open_issues_count}🚩
                 </p>
               </div>
               <FiChevronRight size={20} />
