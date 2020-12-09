@@ -23,7 +23,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+<<<<<<< HEAD
     "build": "yarn run build",
+=======
+    "build": "react-scripts build",
+>>>>>>> parent of 3948b40... refactor: change build script
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
